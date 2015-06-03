@@ -23,4 +23,4 @@
     <div id="contenido">
    
    
- <a style="position:absolute;bottom:0;left:0; background:#fff;height:100px; width: 100%;text-align:center;text-decoration:none; color:#444444;font-size:40px;line-height:100px" href="http://vanuta.com/tutoriales/crear-un-cms-preparando-el-area-de-administracion/">Volver al tutorial</a>
+

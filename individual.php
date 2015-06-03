@@ -5,18 +5,17 @@
 	if ($_POST) {
 		$nombre = $_POST['nombre'];
 		$comentario = $_POST['comentario'];
-		$sql = sprintf("INSERT INTO comentarios VALUES (NULL, '$id', '$nombre', '$comentario', 0)");
-		$res = mysql_query($sql);
-        if (!$res) die('Invalid query: ' . mysql_error());
+		
+		$esecuel = mysql_query("INSERT INTO comentarios VALUES (NULL, '$id', '$nombre', '$comentario', 0)");
+        if (!$esecuel) die('Invalid query: ' . mysql_error());
 	}
-	$sql = sprintf("SELECT * FROM articulos WHERE id = '$id' LIMIT 1");
-	$res = mysql_query($sql);
-	if (!$res) die('Invalid query: ' . mysql_error());
+	
+	$esecuel = mysql_query("SELECT * FROM articulos WHERE id = '$id' LIMIT 1");
+	if (!$esecuel) die('Invalid query: ' . mysql_error());
 ?>
 
 	<div id="contenido_izq">
-	<p>Lo de aquí abajo es un artículo completo :D.</p>
-	<?php while ($post = mysql_fetch_array($res)) { 
+	<?php while ($post = mysql_fetch_array($esecuel)) { 
 		@$ids = $post['categoria'];
 		$sql = sprintf("SELECT categoria FROM categorias WHERE id = '$ids'");
 		$categoria = mysql_query($sql); 
@@ -25,11 +24,13 @@
 		<?php echo $post['contenido'] ?>
 		<p><?php echo $categoria['categoria']; ?></p>
 	<?php } ?>
-	<h3>Comentarios</h3>
-	<?php $sql = sprintf("SELECT * FROM comentarios WHERE articulo = '$id' and estado = 1");
-	$res = mysql_query($sql);
-	if (!$res) die('Invalid query: ' . mysql_error()); ?>
-	<?php while ($comentario = mysql_fetch_array($res)) { ?>
+	<div class="futer">	
+<h3>Comentarios</h3>
+	<?php 
+	$esecuel = mysql_query("SELECT * FROM comentarios WHERE articulo = '$id' and estado = 1");
+	if (!$esecuel) die('Consulta invalida: ' . mysql_error()); ?>
+	<?php while ($comentario = mysql_fetch_array($esecuel)) { ?>
+<hr>
 		<?php echo strip_tags($comentario['nombre']) ?><br>
 		<?php echo strip_tags($comentario['comentario']) ?> <br><br>
 	<?php } ?>
@@ -39,6 +40,7 @@
 	<label for="comentario">Comentario:</label><textarea name="comentario"></textarea>
 	<input type="submit" value="Enviar">
 	</form>
+	</div>
 	</div>
 	<?php include 'barra_lateral.php' ?>
 </div>
