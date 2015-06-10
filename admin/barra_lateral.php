@@ -1,14 +1,15 @@
 <?php include 'cabecera.php';
 include '../includes/config.php';
-	if($_GET['a'] == "c") {
-		@$barra = $_POST['barra'];
-		$sql = sprintf("INSERT INTO barra_lateral VALUES (NULL, '$barra')");
+	if(@$_GET['a'] == "c") {
+		@$barrera = $_POST['barra'];
+		@$ide = $_POST['ide'];
+		$sql = sprintf("INSERT INTO barra_lateral VALUES ('$barrera', '$ide')");
 		$res = mysql_query($sql);
         if (!$res) die('Invalid query: ' . mysql_error());
-	} else if($_GET['a'] == "m") {
+	} else if(@$_GET['a'] == "m") {
 		$nombre = $_POST['barra'];
 		$id = $_GET['id'];
-		$res = mysql_query("UPDATE barra_lateral SET contenido = '$barra' WHERE id = '$id'");
+		@$res = mysql_query("UPDATE barra_lateral SET contenido = '$barrera' WHERE id = '$id'");
         if (!$res) die('Invalid query: ' . mysql_error());
 	}
 
@@ -47,16 +48,17 @@ include '../includes/config.php';
 		</table>
 </div>
 <div id="derecha">
-<?php if($_GET['accion'] == "crear") { ?>
+<?php if(@$_GET['accion'] == "crear") { ?>
 	<h2>Alta nueva barra lateral</h2>
 	<form method="post" action="barra_lateral.php?a=c">
+		<label> id(1 al 10 ) </label> <input type="text" name="ide"><br>
 		<label for="barra">Contenido</label>
 		<textarea name="barra"></textarea>
 		<input type="submit" value="Crear">
 	</form>
-<?php } else if ($_GET['id']) {
+<?php } else if (@$_GET['id']) {
 	$id = $_GET['id'];
-	$sql = sprintf("SELECT id, contenido FROM barra_lateral WHERE id = '$id' LIMIT 1");
+	$sql = sprintf("SELECT id, contenido FROM barra_lateral WHERE id = '$id'");
 	$res = mysql_query($sql);
 	if (!$res) die('Invalid query: ' . mysql_error());
 	$barra = mysql_fetch_array($res)

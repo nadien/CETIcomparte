@@ -1,11 +1,10 @@
 <?php 
 	include 'cabecera.php';	
 	include 'includes/config.php';
-	include 'barra_lateral.php';
-	include 'pie.php';
 	
-	$esecuel = mysql_query("SELECT * FROM articulos ORDER BY id DESC");
-	if (!$esecuel) die('Invalid query: ' . mysql_error());
+	
+	$esecuel = mysql_query("SELECT * FROM articulos ORDER BY id ASC");
+	if (!$esecuel) die('Consulta inválida: ' . mysql_error());
 ?>
 
 	<div id="contenido_izq">
@@ -17,11 +16,16 @@
 		<h2><a href="individual.php?id=<?php echo $post['id'] ?>"> <?php echo $post['titulo'] ?></a></h2>
 		<p><?php echo $post['contenido'] ?> </p>
 		<p><?php echo $categoria['categoria']; ?></p>
-	<?php } ?>
+	<?php } 
+	
+	include 'pie.php';
+	?>
 	
 	</div>
 	
-	<?php include 'barra_lateral.php' ?>
+	
+	
+	
 </div>
 
 

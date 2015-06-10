@@ -43,4 +43,6 @@
 	</div>
 	</div>
 	<?php include 'barra_lateral.php' ?>
+	
+	
 </div>

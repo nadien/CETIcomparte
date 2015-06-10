@@ -1,3 +1,7 @@
+<?php 
+include 'includes/config.php';
+include 'barra_lateral.php'; 
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -69,20 +73,20 @@
 
  <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
           <div class="list-group">
-            <a href="#" class="list-group-item active">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
-            <a href="#" class="list-group-item">Link</a>
+		  
+            <a href="#" class="list-group-item active"><?php echo @$barrera['contenido']; ?></a>
+            <a href="#" class="list-group-item"><?php echo @$barrera['contenido']; ?> </a>
+            <a href="#" class="list-group-item"><?php echo @$barra['id']; ?> </a>
+            <a href="#" class="list-group-item"><?php echo @$barra[3]; ?> </a>
+            <a href="#" class="list-group-item"><?php echo @$barra[4]; ?> </a>
+            <a href="#" class="list-group-item"><?php echo @$barra[6]; ?> </a>
+            <a href="#" class="list-group-item"><?php echo @$barra[7]; ?> </a>
+            <a href="#" class="list-group-item"><?php echo @$barra[8]; ?> </a>
+            <a href="#" class="list-group-item"><?php echo @$barra[9]; ?> </a>
           </div>
         </div><!--/.sidebar-offcanvas-->
       </div><!--/row-->
-<?php $index = mysql_query("select index from extras")  ?>
+
 
 
    

@@ -7,12 +7,11 @@
 
 	 @$post = $_GET['id'];
 	include '../includes/config.php';
-	$cat = sprintf("SELECT * FROM categorias WHERE 1");
-	$c = mysql_query($cat);
+	$c = mysql_query("SELECT * FROM categorias WHERE 1");
 	if ($post > 0) {
 	$sql = sprintf("SELECT * FROM articulos WHERE id = '$post'");
 	$res = mysql_query($sql);
-	if (!$res) die('Invalid query: ' . mysql_error());
+	if (!$res) die('Consulta inválida: ' . mysql_error());
 	$res = mysql_fetch_array($res);
 	
 } 
