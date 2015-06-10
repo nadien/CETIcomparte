@@ -74,9 +74,9 @@ include 'barra_lateral.php';
  <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
           <div class="list-group">
 		  
-            <a href="#" class="list-group-item active"><?php echo @$barrera['contenido']; ?></a>
-            <a href="#" class="list-group-item"><?php echo @$barrera['contenido']; ?> </a>
-            <a href="#" class="list-group-item"><?php echo @$barra['id']; ?> </a>
+            <a href="#" class="list-group-item"><?php echo @$barra[0]; ?></a>
+            <a href="#" class="list-group-item"><?php echo @$barra[1]; ?> </a>
+            <a href="#" class="list-group-item"><?php echo @$barra[2]; ?> </a>
             <a href="#" class="list-group-item"><?php echo @$barra[3]; ?> </a>
             <a href="#" class="list-group-item"><?php echo @$barra[4]; ?> </a>
             <a href="#" class="list-group-item"><?php echo @$barra[6]; ?> </a>
