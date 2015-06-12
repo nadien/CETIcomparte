@@ -3,15 +3,14 @@
 <script src="text/wysiwyg.js"></script>
 <script src="text/articulos.js"></script>
 <link rel="stylesheet" href="text/wysiwyg.css" type="text/css" charset="utf-8">
-<?php
-
-	 @$post = $_GET['id'];
-	include '../includes/config.php';
-	$c = mysql_query("SELECT * FROM categorias WHERE 1");
-	if ($post > 0) {
+<?php $post = $_GET['id'];
+include '../includes/config.php';
+$cat = sprintf("SELECT * FROM categorias WHERE 1");
+$c = mysql_query($cat);
+if ($post > 0) {
 	$sql = sprintf("SELECT * FROM articulos WHERE id = '$post'");
 	$res = mysql_query($sql);
-	if (!$res) die('Consulta inválida: ' . mysql_error());
+	if (!$res) die('Invalid query: ' . mysql_error());
 	$res = mysql_fetch_array($res);
 	
 } 
@@ -27,7 +26,7 @@
 	<div class="area" contenteditable><?php if ($post > 0) echo $res['contenido'] ?></div>
 	<select name="categoria">
 		<?php while ($r = mysql_fetch_array($c)) { ?>
-			<option <?php if(@$res['categoria'] == $r['id']) echo 'selected = "selected"' ?>name="categoria" value="<?php echo $r['id'] ?>"><?php echo $r['categoria']?></option>			
+			<option <?php if($res['categoria'] == $r['id']) echo 'selected = "selected"' ?>name="categoria" value="<?php echo $r['id'] ?>"><?php echo $r['categoria']?></option>			
 		<?php } ?>
 	</select>
 		

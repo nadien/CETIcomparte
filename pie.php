@@ -10,6 +10,12 @@ sfs
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="dist/css/sticky-footer-navbar.css" rel="stylesheet">
 
+<footer class="footer">
+      <div class="container">
+        <p class="text-muted">CETIcomparte todos los derechos reservados <em>@2015</em>.</p>
+      </div>
+    </footer>
   </body>
 </html>

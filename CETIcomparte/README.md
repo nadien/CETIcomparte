@@ -1,2 +1,0 @@
-# CETIcomparte
-Compartir material escolar
