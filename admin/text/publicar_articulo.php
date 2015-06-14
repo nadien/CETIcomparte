@@ -1,6 +1,6 @@
 <?php 
 
-echo "<h2> articulo modificado con exito, <a href='../index.php'>regresar</a> </h2>";
+echo "<h2> articulo publicado con [exito, <a href='../index.php'>regresar</a> </h2>";
 
 if ($_POST) {
 	include '../../includes/config.php';
@@ -16,14 +16,14 @@ if ($_POST) {
 
 	if ($id > 0) {
 		
-		$sql = sprintf("UPDATE articulos SET titulo = '$titulo', contenido = '$contenido', categoria = '$categoria' where id = '$id' ");
+		$sql = sprintf("INSERT INTO articulos values (NULL ,titulo = '$titulo', contenido = '$contenido', categoria = '$categoria') ");
 		$res = mysql_query($sql);
 		
         if (!$res) die('Invalid query: ' . mysql_error());
 	}
 	else {
 
-		$sql = sprintf("UPDATE articulos SET titulo = '$titulo', contenido = '$contenido', categoria = '$categoria' where id = '$id' ");
+		$sql = sprintf("INSERT INTO articulos VALUES (NULL, '$titulo', '$contenido', '$autor', $categoria)");
 		$res = mysql_query($sql);
 		if($sql) echo "holaaaaaa";
        

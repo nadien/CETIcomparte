@@ -15,9 +15,9 @@
             <li><a href="articulos.php">Artículos</a></li>
             <li><a href="comentarios.php">Comentarios</a></li>
             <li><a href="categorias.php">Categorías</a></li>
-            <li><a href="menu.php">Menú</a></li>
             <li><a href="barra_lateral.php">Barra lateral</a></li>
             <li style="margin-left:50px"><a href="entrada.php?accion=salir">Salir</a></li>
+	<li> <a href="../index.php"> Ver pagina </a></li>
         </ul>
     </div>
     <div id="contenido">

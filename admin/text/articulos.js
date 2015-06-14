@@ -6,11 +6,13 @@ $(function() {
         var titulo = $button.parent().find("input[name=titulo]").val();
         var autor = $button.parent().find("input[name=autor]").val();
         var categoria = $button.parent().find("select[name=categoria]").val();
+	
         $.ajax({    type: "POST",
         	url:"text/actualizar_articulo.php",
         	data: "titulo="+titulo+"&contenido="+contenido+"&autor="+autor+"&categoria="+categoria,
-        	success: function(data){
-        	window.location = "articulos.php?id="+parseInt(data);
+        	success: function(){
+		
+        	window.location = "text/publicar_articulo.php";
         	
         }});
     });
@@ -30,6 +32,7 @@ $(function() {
         	url:"text/actualizar_articulo.php",
         	data: "titulo="+titulo+"&contenido="+contenido+"&autor="+autor+"&post="+post+"&categoria="+categoria,
         	success: function(data){
+		window.location = "text/actualizar_articulo.php";
         }});
     });
 });

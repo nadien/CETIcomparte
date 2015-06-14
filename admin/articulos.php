@@ -1,15 +1,16 @@
-<?php include 'cabecera.php' ?>
+<?php 
+
+include 'cabecera.php' ?>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="text/wysiwyg.js"></script>
 <script src="text/articulos.js"></script>
 <link rel="stylesheet" href="text/wysiwyg.css" type="text/css" charset="utf-8">
-<?php
-
-	 @$post = $_GET['id'];
-	include '../includes/config.php';
-	$cat = sprintf("SELECT * FROM categorias WHERE 1");
-	$c = mysql_query($cat);
-	if ($post > 0) {
+<?php 
+@$post = $_GET['id'];
+include '../includes/config.php';
+$cat = sprintf("SELECT * FROM categorias WHERE 1");
+$c = mysql_query($cat);
+if ($post > 0) {
 	$sql = sprintf("SELECT * FROM articulos WHERE id = '$post'");
 	$res = mysql_query($sql);
 	if (!$res) die('Invalid query: ' . mysql_error());
