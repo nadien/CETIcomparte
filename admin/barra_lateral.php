@@ -1,14 +1,15 @@
 <?php include 'cabecera.php';
 include '../includes/config.php';
 	if($_GET['a'] == "c") {
-		@$barra = $_POST['barra'];
+		$barra = $_POST['barra'];
 		$sql = sprintf("INSERT INTO barra_lateral VALUES (NULL, '$barra')");
 		$res = mysql_query($sql);
         if (!$res) die('Invalid query: ' . mysql_error());
 	} else if($_GET['a'] == "m") {
 		$nombre = $_POST['barra'];
 		$id = $_GET['id'];
-		$res = mysql_query("UPDATE barra_lateral SET contenido = '$barra' WHERE id = '$id'");
+		$sql = sprintf("UPDATE barra_lateral SET contenido = '$barra' WHERE id = '$id'");
+		$res = mysql_query($sql);
         if (!$res) die('Invalid query: ' . mysql_error());
 	}
 

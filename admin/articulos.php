@@ -5,8 +5,12 @@ include 'cabecera.php' ?>
 <script src="text/wysiwyg.js"></script>
 <script src="text/articulos.js"></script>
 <link rel="stylesheet" href="text/wysiwyg.css" type="text/css" charset="utf-8">
+<<<<<<< HEAD
 <?php 
 @$post = $_GET['id'];
+=======
+<?php $post = $_GET['id'];
+>>>>>>> 714d59ac9a604aaad71c96766c800ea1243e2fd1
 include '../includes/config.php';
 $cat = sprintf("SELECT * FROM categorias WHERE 1");
 $c = mysql_query($cat);
@@ -29,7 +33,7 @@ if ($post > 0) {
 	<div class="area" contenteditable><?php if ($post > 0) echo $res['contenido'] ?></div>
 	<select name="categoria">
 		<?php while ($r = mysql_fetch_array($c)) { ?>
-			<option <?php if(@$res['categoria'] == $r['id']) echo 'selected = "selected"' ?>name="categoria" value="<?php echo $r['id'] ?>"><?php echo $r['categoria']?></option>			
+			<option <?php if($res['categoria'] == $r['id']) echo 'selected = "selected"' ?>name="categoria" value="<?php echo $r['id'] ?>"><?php echo $r['categoria']?></option>			
 		<?php } ?>
 	</select>
 		
